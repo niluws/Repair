@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <!-- Blog Detail Start -->
+
+                    <div class="mb-5">
+                        {% for images in detailItems.itemimage_set.all %}
+                            <img class="img-fluid w-100 rounded mb-5" src="{{ images.image_file.url }}" alt="">
+                        {% endfor %}
+                        <h1 class="mb-4">{{ detailItems.title }}</h1>
+                        <p>{{ detailItems.description }}</p>
+                    </div>
+
+                    <!-- Blog Detail End -->
+
+                    <!-- Comment List Start -->
+
+                    <!-- Comment List End -->
+
+                    <!-- Comment Form Start -->
+
+                    <!-- Comment Form End -->
+                </div>
+
+                <!-- Sidebar Start -->
+                <div class="col-lg-4">
+                    <!-- Category Start -->
+                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="mb-0">Categories</h3>
+                        </div>
+                        <div class="link-animated d-flex flex-column justify-content-start">
+                            {% for category in categories %}
+                                <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2"
+                                   href="{% url 'category' category=category.slug %}"><i
+                                        class="bi bi-arrow-right me-2"></i>{{ category.title }}</a>
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                    <!-- Category End -->
+
+                    <!-- Recent Post Start -->
+                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="mb-0">Recent Post</h3>
+                        </div>
+                        {% for recent_item in recent_items %}
+                            <div class="d-flex rounded overflow-hidden mb-3">
+                            {% for images in recent_item.itemimage_set.all %}
+                                <img class="img-fluid" src="{{ images.image_file.url}}"
+                                     style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                                {% endfor %}
+                                <a href="" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0">
+                                    {{ recent_item.title }}
+                                </a>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                    <!-- Recent Post End -->
+
+
+                    <!-- Plain Text Start -->
+                    <div class="wow slideInUp" data-wow-delay="0.1s">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="mb-0">Plain Text</h3>
+                        </div>
+                        <div class="bg-light text-center" style="padding: 30px;">
+                            <p>Vero sea et accusam justo dolor accusam lorem consetetur, dolores sit amet sit dolor
+                                clita kasd justo, diam accusam no sea ut tempor magna takimata, amet sit et diam dolor
+                                ipsum amet diam</p>
+                            <a href="" class="btn btn-primary py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Plain Text End -->
+                </div>
+                <!-- Sidebar End -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

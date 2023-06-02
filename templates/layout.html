@@ -1,0 +1,79 @@
+{% load render_partial %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Startup - Startup Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+{% include 'component/header_links.html' %}
+  </head>
+
+<body>
+
+
+
+    <!-- Navbar & Carousel Start -->
+    {% render_partial 'category.views.CategoryView' %}
+{#    {% include 'component/navbar.html' %}#}
+    <!-- Navbar & Carousel End -->
+
+
+<div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="w-100" src="/static/img/pexels-daniel-absi-952670.jpg" alt="Image">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                <div class="p-3" style="max-width: 900px;">
+                    {% block header_title %}
+
+                    {% endblock %}
+                    {% if request.user.is_authenticated %}
+                        {% block header %}
+
+
+                        {% endblock %}
+                        {#                            <a href="" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">edit</a>#}
+                    {% else %}
+
+                        <a href="{% url 'signup' %}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Register</a>
+
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- Blog Start -->
+
+    {% block content %}
+
+    {% endblock %}
+    <!-- Blog Start -->
+
+
+
+    <!-- Footer Start -->
+    {% include 'component/footer.html' %}
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+
+{% include 'component/footer_links.html' %}
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+ <div class="container py-5" id="profile">
+            <div class="row g-5 ">
+                <div class="col-lg-12">
+                    <section>
+                        <div class=" container py-5">
+
+{#                                {% csrf_token %}#}
+                                <div class="row">
+
+                                    <div class="col-lg-6">
+                                        <div class=" mb-4">
+                                            <div class="">
+                                                <div class="row">
+
+                                                    <p class="text-muted mb-0">{{ userForm.first_name }} </p>
+
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+
+
+                                                    <p class="text-muted mb-0">{{ userForm.last_name }} </p>
+
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+
+                                                    <p class="text-muted mb-0">{{ userForm.username }} </p>
+
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+
+                                                    <p class="text-muted mb-0">{{ userForm.email }} </p>
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class=" mb-4">
+                                            <div class="">
+                                                <div class="row">
+                                                    <p class="text-muted mb-0">{{ profileForm.post_code }}</p>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <p class="text-muted mb-0">{{ profileForm.address }}</p>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <p class="text-muted mb-0">{{ profileForm.phone }}</p>
+                                                </div>
+                                                <hr>
+                                                <div class="row" style="justify-content: flex-end;">
+                                                    <div class="col-12 col-lg-6 ">
+                                        <button onclick="Update()" id="updateButton" class="btn btn-primary w-100 py-3 ">
+                                            Update
+                                        </button>
+                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
